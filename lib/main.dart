@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:rate_it/view/screens/splash_screen.dart';
+import 'package:rate_it/splash_screen.dart';
+
+import 'core/utiles/app_colors.dart';
+import 'core/constants/constants_widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
+        colorScheme: ColorScheme.fromSeed(seedColor:AppColors.mainColor),
         useMaterial3: true,
       ),
       home: const SplashScreen(),
@@ -28,27 +31,12 @@ class MainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.mainColor,
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: const Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Rate It',
-              style: TextStyle(color: Colors.white),
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Icon(
-              Icons.star_rate,
-              color: Colors.yellowAccent,
-            )
-          ],
-        ),
+        backgroundColor: AppColors.mainColor,
+        title:  const LogoApp()
       ),
-      body: SizedBox(),
+      body: const SizedBox(),
     );
   }
 }
