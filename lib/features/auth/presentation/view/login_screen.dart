@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rate_it/core/constants/app_strings/app_routes_values.dart';
+import 'package:rate_it/core/constants/constants_widgets.dart';
 import 'package:rate_it/core/utiles/app_widgets/app_buttons.dart';
 import 'package:rate_it/core/constants/app_strings/app_strings.dart';
-import 'package:rate_it/features/auth/presentation/viewModel/login_view_model.dart';
+import 'package:rate_it/features/auth/presentation/viewModel/login_vm.dart';
 import 'package:rate_it/features/auth/presentation/widgets/auth_widgets.dart';
-import '../../../../core/constants/app_icons.dart';
 import '../../../../core/utiles/app_colors.dart';
 import '../../../../core/utiles/app_widgets/shared_widgets.dart';
 import '../../../../core/utiles/shared_fun.dart';
@@ -19,50 +19,44 @@ class LoginScreen extends StatelessWidget {
       backgroundColor: AppColors.mainColor,
       body: Column(
         children: [
-          const SizedBox(
-            height: 180,
-          ),
+          VSpace(height: 180),
           const LogoApp(),
-          const SizedBox(
-            height: 10,
-          ),
+          VSpace(height: 10),
           ClipRRect(
             borderRadius: BorderRadius.circular(25),
             child: Container(
-              color: Colors.amberAccent,
+              color: AppColors.yellow,
               width: MediaQuery.of(context).size.width * 0.8,
               height: MediaQuery.of(context).size.height * 0.5,
               child: Form(
                 child: Column(
                   children: [
-                    const SizedBox(
-                      height: 20,
-                    ),
+                    VSpace(height: 20),
                     appText(
                         txt: AppStrings.logInTxt,
                         size: 30,
                         color: AppColors.mainColor),
-                    const SizedBox(
-                      height: 20,
-                    ),
+                    VSpace(height: 20),
                     Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 25),
                         child: AuthTextField(
                           hintText: AppStrings.userName,
+                          controller:
+                              context.read<LoginViewModel>().userNameController,
                         )),
-                    const SizedBox(
-                      height: 20,
-                    ),
+                    VSpace(height: 20),
                     Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 25),
                         child: PassTextField(
                           hintText: AppStrings.pass,
                           isLoginPass: true,
+                          controller:
+                              context.read<LoginViewModel>().passController,
                         )),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    AppButtons.roundButton(() {}, AppStrings.logInTxt),
+                    VSpace(height: 30),
+                    AppButtons.roundButton(() {
+                      Nav.navigatReplac(context, NameRoutes.home);
+                    }, AppStrings.logInTxt),
                     const Expanded(
                       child: SizedBox(),
                     )
@@ -71,18 +65,14 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          VSpace(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               appText(
                   txt: AppStrings.dontHaveAccount,
                   color: AppColors.secondryColor),
-              const SizedBox(
-                width: 5,
-              ),
+              HSpace(width: 5),
               InkWell(
                 child:
                     appText(txt: AppStrings.registerNow, color: AppColors.blue),

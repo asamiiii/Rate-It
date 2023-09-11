@@ -3,24 +3,28 @@ import 'package:flutter/material.dart';
 import '../app_colors.dart';
 import '../../constants/app_strings/app_strings.dart';
 
+Widget appText(
+    {String? txt, Color? color = AppColors.secondryColor, double? size = 15,bool inCenter=true}) {
+  return Row(
+    mainAxisAlignment: inCenter==true? MainAxisAlignment.center:MainAxisAlignment.start,
+    children: [
+      Text(
+        '$txt',
+        style: TextStyle(
+          color: color,
+          fontSize: size,
+        ),
+      ),
+    ],
+  );
+}
 
-    Text appText({String? txt,Color? color=AppColors.secondryColor,double? size=15}){
-    return Text('$txt',style: TextStyle(
-      color: color,
-      fontSize: size
-    ),);
-  }
-
-
-
-
-
-  class LogoApp extends StatelessWidget {
+class LogoApp extends StatelessWidget {
   const LogoApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(

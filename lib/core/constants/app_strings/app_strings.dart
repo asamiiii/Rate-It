@@ -10,4 +10,9 @@ class AppStrings {
   static String pass = '  Password';
   static String confirmPass = '  Confirm Password';
   static String email = '  E-mail';
+  static String welcome = 'Welcome, ';
+  static String topRated = 'Top Rated';
+
+  
+  
 }
