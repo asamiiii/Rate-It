@@ -23,7 +23,7 @@ class RatingItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           child: Stack(
             children: [
-              Container(
+              SizedBox(
                 width: AppResponcive.aWidth(context, 0.30),
                 height: AppResponcive.aHight(context, 0.13),
                 // color: AppColors.secondryColor,

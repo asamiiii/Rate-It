@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:rate_it/core/constants/constants_widgets.dart';
-import 'package:rate_it/core/constants/responcive.dart';
 import 'package:rate_it/core/utiles/app_widgets/shared_widgets.dart';
 import 'package:rate_it/features/rating/presentation/widgets/welcome.dart';
-import '../../../../core/utiles/app_colors.dart';
 import '../widgets/category.dart';
 import '../widgets/rating_item.dart';
-import '../widgets/search.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
