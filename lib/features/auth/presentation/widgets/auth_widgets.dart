@@ -66,22 +66,7 @@ class PassTextField extends StatelessWidget {
                           },
                         )
                       : const SizedBox(),
-          border: OutlineInputBorder(
-            borderSide: const BorderSide(width: 2, color: AppColors.mainColor),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(width: 2, color: AppColors.mainColor),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          disabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(width: 2, color: AppColors.mainColor),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(width: 2, color: Colors.white),
-            borderRadius: BorderRadius.circular(20),
-          ),
+          
         ),
       ),
     );
@@ -102,25 +87,12 @@ class AuthTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<LoginViewModel>(
       builder: (context, value, child) => TextFormField(
+        validator: (value) {
+          return 'fffff';
+        },
         controller: controller,
         decoration: InputDecoration(
           hintText: hintText,
-          border: OutlineInputBorder(
-            borderSide: const BorderSide(width: 2, color: AppColors.mainColor),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(width: 2, color: AppColors.mainColor),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          disabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(width: 2, color: AppColors.mainColor),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(width: 2, color: Colors.white),
-            borderRadius: BorderRadius.circular(20),
-          ),
         ),
       ),
     );

@@ -19,7 +19,7 @@ class LoginScreen extends StatelessWidget {
       backgroundColor: AppColors.mainColor,
       body: Column(
         children: [
-          VSpace(height: 180),
+          VSpace(height: 160),
           const LogoApp(),
           VSpace(height: 10),
           ClipRRect(
@@ -54,9 +54,14 @@ class LoginScreen extends StatelessWidget {
                               context.read<LoginViewModel>().passController,
                         )),
                     VSpace(height: 30),
-                    AppButtons.roundButton(() {
+                    AppButtons.roundButton(
+                      onTap: () {
                       Nav.navigatReplac(context, NameRoutes.home);
-                    }, AppStrings.logInTxt),
+                    },
+                    txt: AppStrings.logInTxt,
+                    color: AppColors.mainColor,
+                    txtColor: AppColors.secondryColor
+                    ),
                     const Expanded(
                       child: SizedBox(),
                     )

@@ -12,6 +12,10 @@ class AppStrings {
   static String email = '  E-mail';
   static String welcome = 'Welcome, ';
   static String topRated = 'Top Rated';
+  static String categories = 'Categories';
+  static String  search =  '    Search';
+ 
+
 
   
   

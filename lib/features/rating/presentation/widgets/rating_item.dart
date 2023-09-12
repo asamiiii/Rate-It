@@ -17,24 +17,28 @@ class RatingItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(15),
           child: Stack(
             children: [
               Container(
-                width: 100,
-                height: AppResponcive.aHight(context, 0.12),
-                color: AppColors.secondryColor,
-                child: Image.asset(AppImages.domyImage),
+                width: AppResponcive.aWidth(context, 0.30),
+                height: AppResponcive.aHight(context, 0.13),
+                // color: AppColors.secondryColor,
+                child: Image.asset(
+                  AppImages.domyImage,
+                  fit: BoxFit.fill,
+                ),
               ),
               Positioned(
                 bottom: 5,
-                // left: 3,
                 child: Container(
-                    height: AppResponcive.aHight(context, 0.03),
-                    width: 100,
+                    height: AppResponcive.aWidth(context, 0.06),
+                    width: AppResponcive.aWidth(context, 0.30),
                     color: Colors.amber.withOpacity(0.6),
+                    // padding: EdgeInsets.symmetric(horizontal: 2),
                     child: appText(
                         txt: '${rateItem?.brandName}$index',
                         inCenter: true,
@@ -44,26 +48,22 @@ class RatingItem extends StatelessWidget {
           ),
         ),
         const Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
               Icons.star_rate,
               color: Colors.yellowAccent,
-              size: 20,
+              size: 15,
             ),
             Icon(
               Icons.star_rate,
               color: Colors.yellowAccent,
-              size: 20,
+              size: 15,
             ),
             Icon(
               Icons.star_rate,
               color: Colors.yellowAccent,
-              size: 20,
-            ),
-            Icon(
-              Icons.star_rate,
-              color: Colors.yellowAccent,
-              size: 20,
+              size: 15,
             ),
           ],
         )
@@ -82,7 +82,7 @@ class TopRatingList extends StatelessWidget {
         appText(txt: AppStrings.topRated, inCenter: false),
         VSpace(height: 5),
         SizedBox(
-          height: AppResponcive.aHight(context, 0.15),
+          height: AppResponcive.aHight(context, 0.18),
           width: AppResponcive.aWidth(context, 0.97),
           // color: Colors.amber,
           child: ListView.separated(

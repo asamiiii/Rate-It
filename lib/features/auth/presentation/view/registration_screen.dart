@@ -20,7 +20,7 @@ class Registration extends StatelessWidget {
       backgroundColor: AppColors.mainColor,
       body: Column(
         children: [
-          VSpace(height: 150),
+          VSpace(height: 130),
           const LogoApp(),
           VSpace(height: 10),
           ClipRRect(
@@ -68,7 +68,12 @@ class Registration extends StatelessWidget {
                           ),
                         )),
                     VSpace(height: 20),
-                    AppButtons.roundButton(() {}, AppStrings.registeration),
+                    AppButtons.roundButton(
+                      onTap: () {},
+                      txt:  AppStrings.registeration,
+                      color:AppColors.mainColor,
+                      txtColor: AppColors.secondryColor
+                      ),
                     const Expanded(
                       child: SizedBox(),
                     ),

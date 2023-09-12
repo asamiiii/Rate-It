@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rate_it/config/app_theme.dart';
 import 'package:rate_it/config/routes.dart';
-import 'package:rate_it/splash_screen.dart';
+import 'package:rate_it/features/app_begin/presentation/begin_veiw/splash_screen.dart';
 import 'core/constants/app_providers.dart';
 import 'core/utiles/app_colors.dart';
 import 'core/utiles/app_widgets/shared_widgets.dart';

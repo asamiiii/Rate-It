@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:rate_it/core/constants/app_strings/app_strings.dart';
 import 'package:rate_it/core/constants/constants_widgets.dart';
-import 'package:rate_it/core/utiles/app_colors.dart';
+import 'package:rate_it/core/constants/responcive.dart';
 import 'package:rate_it/core/utiles/app_widgets/shared_widgets.dart';
 import 'package:rate_it/features/rating/presentation/widgets/welcome.dart';
-import '../../../../core/constants/responcive.dart';
+import '../../../../core/utiles/app_colors.dart';
 import '../widgets/category.dart';
 import '../widgets/rating_item.dart';
+import '../widgets/search.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -18,14 +18,18 @@ class Home extends StatelessWidget {
         title: const LogoApp(),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Welcome(userName: 'Ahmed'),
-          VSpace(height: 15),
-          const TopRatingList(),
-          VSpace(height: 15),
-          const CategoryList() //! Top Rated List
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Welcome(userName: 'Ahmed'),
+            // VSpace(height: 20),
+            // const Search(),
+            VSpace(height: 20),
+            const TopRatingList(),
+            // VSpace(height: 15),
+            const CategoryList() //! Top Rated List
+          ],
+        ),
       ),
     );
   }
