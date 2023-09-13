@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rate_it/core/constants/app_images.dart';
 import 'package:rate_it/core/utiles/app_colors.dart';
 import 'package:rate_it/core/utiles/app_widgets/shared_widgets.dart';
 import 'package:rate_it/features/rating/data/models/rate_item_model.dart';
-
 import '../../../../core/constants/app_strings/app_strings.dart';
 import '../../../../core/constants/constants_widgets.dart';
 import '../../../../core/constants/responcive.dart';
-import '../../data/datasources/dummy_data.dart';
+import '../../../../core/utiles/app_shimmers/top_rated_list_sh.dart';
+import '../view_model/home_vm.dart';
 
+// ignore: must_be_immutable
 class RatingItem extends StatelessWidget {
   RateItem? rateItem;
   int? index;
@@ -35,7 +37,7 @@ class RatingItem extends StatelessWidget {
               Positioned(
                 bottom: 5,
                 child: Container(
-                    height: AppResponcive.aWidth(context, 0.06),
+                    height: AppResponcive.aHight(context, 0.03),
                     width: AppResponcive.aWidth(context, 0.30),
                     color: Colors.amber.withOpacity(0.6),
                     // padding: EdgeInsets.symmetric(horizontal: 2),
@@ -72,28 +74,49 @@ class RatingItem extends StatelessWidget {
   }
 }
 
-class TopRatingList extends StatelessWidget {
-  const TopRatingList({Key? key}) : super(key: key);
+class TopRatingList extends StatefulWidget {
+  const TopRatingList({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<TopRatingList> createState() => _TopRatingListState();
+}
+
+class _TopRatingListState extends State<TopRatingList> {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      context.read<HomeVm>().getPopular();
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        appText(txt: AppStrings.topRated, inCenter: false),
-        VSpace(height: 5),
-        SizedBox(
-          height: AppResponcive.aHight(context, 0.18),
-          width: AppResponcive.aWidth(context, 0.97),
-          // color: Colors.amber,
-          child: ListView.separated(
-            itemBuilder: (context, index) =>
-                RatingItem(rateItem: rateItems[index], index: index),
-            itemCount: rateItems.length,
-            scrollDirection: Axis.horizontal,
-            separatorBuilder: (context, index) => HSpace(width: 5),
+    return Consumer<HomeVm>(
+      builder: (context, homeVm, child) => Column(
+        children: [
+          appText(txt: AppStrings.topRated, inCenter: false),
+          VSpace(height: 5),
+          SizedBox(
+            height: AppResponcive.aHight(context, 0.18),
+            width: AppResponcive.aWidth(context, 0.97),
+            // color: Colors.amber,
+            child: homeVm.isLoading == false
+                ? ListView.separated(
+                    itemBuilder: (context, index) => RatingItem(
+                        rateItem: homeVm.popular[index], index: index),
+                    itemCount: homeVm.popular.length,
+                    scrollDirection: Axis.horizontal,
+                    separatorBuilder: (context, index) => HSpace(width: 5),
+                  )
+                : const TopRatedListShimmer(),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
+
+
