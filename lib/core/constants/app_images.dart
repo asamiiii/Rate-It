@@ -1,5 +1,9 @@
 class AppImages{
-  static const splash = 'assets/images/splash.png';
-  static const domyImage = 'assets/images/picture.png';
+
+  static const String imagesLocation= 'assets/images';
+
+  static const String splash = '$imagesLocation/splash.png';
+  static const domyImage = '$imagesLocation/picture.png';
+  
   
 }

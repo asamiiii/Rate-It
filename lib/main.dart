@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rate_it/config/app_theme.dart';
 import 'package:rate_it/config/routes.dart';
+import 'package:rate_it/core/constants/app_strings/app_strings.dart';
 import 'package:rate_it/features/app_begin/presentation/begin_veiw/splash_screen.dart';
 import 'core/constants/app_providers.dart';
 import 'core/utiles/app_colors.dart';
@@ -17,10 +18,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: AppProviders
-          .providers, //! All Providers in Constants Folder /app_providers
+      //? All Providers in Constants Folder /app_providers
+      providers: AppProviders.providers, 
       child: MaterialApp(
-        title: 'Rate It',
+        title: AppStrings.appName,
         theme: AppTheme.appTheme,
         routes: AppConfig.routes,
         home: const SplashScreen(),

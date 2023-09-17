@@ -7,7 +7,7 @@ import '../features/rating/presentation/view/home.dart';
 
 
 class AppConfig{
-  static var routes =<String, Widget Function(BuildContext)>  {
+  static Map<String, Widget Function(BuildContext)> routes = {
     NameRoutes.splash:(_) => const SplashScreen(),
     NameRoutes.login :(_) => const LoginScreen(),
     NameRoutes.registeration :(_) => const Registration(),
